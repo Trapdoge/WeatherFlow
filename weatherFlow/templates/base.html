@@ -3,9 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <title>WeatherFlow</title>
+    <style>
+        .good {background: rgba(0, 204, 0, 0.5)}
+        .moderate {background: rgba(255, 255, 0, 0.5)}
+        .usg {background: rgba(255, 153, 0, 0.5)}
+        .unhealthy {background: rgba(255, 0, 0, 0.7)}
+        .veryunhealthy {background: rgba(153, 0, 102, 0.7)}
+        .harzardous {background: rgba(102, 0, 0, 0.7)}
+    </style>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
@@ -19,8 +30,9 @@
           <a class="nav-link" href="{% url 'about' %}">About me</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form action="{% url 'home' %}"class="d-flex" role="search" method = "POST">
+          {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Enter ZIP code, city, country..." aria-label="Search" name="location">
         <button class="btn btn-outline-secondary" type="submit">Search</button>
       </form>
     </div>

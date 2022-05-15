@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -8,9 +9,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    <h1>Hello world!!!</h1>
+    <br/>
+
+    {% if location %}
+        {{ location }}
+    {% endif %}
+    {% if api %}
+
+        {% if api == "Error..." %}
+            There was an error, please try again later...
+
+        {% else %}
+            <div class="p-5 mb-4 {{ category_color }} rounded-3">
+                <h1 class="display-3">{{ category_title }}</h1>
+                <p class="fs-5">{{ category_index }}</p>
+                <br/>
+                <p class="fs-5">{{ category_description }}</p>
+                <br/>
+            </div>
+        {% endif %}
+    {% endif %}
 </body>
 </html>
 
