@@ -1,5 +1,5 @@
 # WeatherFlow
-Air quality indice
+Air quality index
 
 ## Description
 WeatherFlow is a webapp that allows you to know the air quality index (according to the US EPA standard) 
