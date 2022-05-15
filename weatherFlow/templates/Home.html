@@ -31,7 +31,22 @@
                 <br/>
                 <p class="fs-5">{{ category_description }}</p>
                 <br/>
+                <hr style="height:4px;border-width:3px;color:gray(0.8);">
+                <p class="fs-5">Details:<br/>
+                    CO concentration (μg/m3): &emsp; {{ api.current.air_quality.co|floatformat }}
+                    <br/>
+                    NO2 concentration (μg/m3): &emsp; {{ api.current.air_quality.no2|floatformat }}
+                    <br/>
+                    O3 concentration (μg/m3): &emsp; {{ api.current.air_quality.o3|floatformat }}
+                    <br/>
+                    SO3 concentration (μg/m3): &emsp; {{ api.current.air_quality.so2|floatformat }}
+                    <br/>
+                    PM 2.5 concentration (μg/m3): &emsp; {{ api.current.air_quality.pm2_5|floatformat }}
+                    <br/>
+                    PM 10 concentration (μg/m3): &emsp; {{ api.current.air_quality.pm10|floatformat }}
+                </p>
             </div>
+
         {% endif %}
     {% endif %}
 </body>
