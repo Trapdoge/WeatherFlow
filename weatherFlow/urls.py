@@ -1,3 +1,4 @@
+#views.py file which holds all the urls
 from django.urls import path, include
 from . import views
 
