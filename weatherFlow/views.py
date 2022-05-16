@@ -11,6 +11,17 @@ def home(request):
                                    "=" + location + "&aqi=yes")
         try:
             api = json.loads(api_request.content)
+
+            if 'error' in api:
+
+                return render(request, 'Home.html', {
+                    'api': api,
+                    'category_title': "Error",
+                    'category_index': " ",
+                    'category_description': api['error']['message'] + " Try another location.",
+                    'category_color': "unhealthy"
+                })
+
             api['current']['air_quality']['us_epa_index'] = api['current']['air_quality']['us-epa-index']
             del api['current']['air_quality']['us-epa-index']
 
