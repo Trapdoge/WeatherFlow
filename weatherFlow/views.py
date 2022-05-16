@@ -12,7 +12,17 @@ def home(request):
         try:
             api = json.loads(api_request.content)
 
-            if 'error' in api:
+            if 'error' in api and int(api['error']['code']) == 1003:
+
+                return render(request, 'Home.html', {
+                    'api': api,
+                    'category_title': "Error",
+                    'category_index': " ",
+                    'category_description': "input is empty try something!",
+                    'category_color': "unhealthy"
+                })
+
+            elif 'error' in api and int(api['error']['code']) == 1006:
 
                 return render(request, 'Home.html', {
                     'api': api,
